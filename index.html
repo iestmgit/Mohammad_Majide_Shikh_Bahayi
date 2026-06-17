@@ -1,15 +1,4 @@
 ```html
-<!-- فقط بخش‌های مهم را اینجا می‌دهم؛ این نسخه دارای:
-✓ Hero حرفه‌ای
-✓ افکت شیشه‌ای Glassmorphism
-✓ انیمیشن Scroll Reveal
-✓ ذرات متحرک
-✓ شمارنده آماری
-✓ کارت‌های مدرن
-✓ گرادینت‌های حرفه‌ای
-✓ طراحی ریسپانسیو
--->
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -18,15 +7,18 @@
 
 <title>استاد محمد مجید شیخ بهایی</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700;900&display=swap" rel="stylesheet">
-
 <style>
+
+@font-face{
+font-family:'Yekan';
+src:url('fonts/yekan.ttf');
+}
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Vazirmatn',sans-serif;
+font-family:'Yekan';
 }
 
 html{
@@ -34,26 +26,50 @@ scroll-behavior:smooth;
 }
 
 body{
-background:#06110b;
+background:#08110c;
 color:white;
 overflow-x:hidden;
+line-height:2;
 }
 
-/* Background */
+/* NAVBAR */
 
-body::before{
-content:'';
+nav{
 position:fixed;
+top:0;
 width:100%;
-height:100%;
-background:
-radial-gradient(circle at 20% 20%,rgba(0,255,140,.15),transparent 25%),
-radial-gradient(circle at 80% 30%,rgba(0,180,255,.15),transparent 30%),
-radial-gradient(circle at 50% 80%,rgba(255,255,255,.05),transparent 20%);
-z-index:-1;
+padding:20px 50px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,.4);
+backdrop-filter:blur(15px);
+z-index:1000;
 }
 
-/* Hero */
+.logo{
+font-size:25px;
+font-weight:bold;
+color:#00ff88;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:25px;
+}
+
+nav ul li a{
+text-decoration:none;
+color:white;
+transition:.3s;
+}
+
+nav ul li a:hover{
+color:#00ff88;
+}
+
+/* HERO */
 
 .hero{
 height:100vh;
@@ -62,151 +78,163 @@ justify-content:center;
 align-items:center;
 text-align:center;
 padding:20px;
+background:
+linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.7)),
+url('images/hero.jpg');
+background-size:cover;
+background-position:center;
 }
 
-.glass{
-background:rgba(255,255,255,.08);
-backdrop-filter:blur(15px);
-border:1px solid rgba(255,255,255,.15);
-border-radius:30px;
-padding:60px;
+.hero-content{
 max-width:900px;
-animation:fadeUp 1.5s ease;
+animation:fadeUp 1.5s;
 }
 
 .hero h1{
-font-size:4rem;
+font-size:70px;
+color:#00ff88;
 margin-bottom:20px;
-background:linear-gradient(90deg,#00ff88,#61dafb);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
 }
 
 .hero p{
-font-size:1.3rem;
-line-height:2;
+font-size:22px;
 color:#ddd;
 }
 
 .btn{
 display:inline-block;
 margin-top:30px;
-padding:15px 40px;
-border-radius:50px;
-background:linear-gradient(135deg,#00ff88,#00c3ff);
+padding:15px 35px;
+background:#00ff88;
 color:black;
-font-weight:bold;
+border-radius:50px;
 text-decoration:none;
-transition:.4s;
+font-weight:bold;
+transition:.3s;
 }
 
 .btn:hover{
 transform:translateY(-5px);
 }
 
-/* Sections */
+/* SECTION */
 
 section{
-padding:120px 10%;
+padding:100px 10%;
 }
 
 .title{
-font-size:3rem;
-margin-bottom:50px;
 text-align:center;
+font-size:45px;
+margin-bottom:50px;
 color:#00ff88;
 }
 
+.glass{
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(15px);
+padding:35px;
+border-radius:25px;
+border:1px solid rgba(255,255,255,.1);
+}
+
+/* ABOUT */
+
+.about p{
+margin-bottom:20px;
+font-size:18px;
+text-align:justify;
+}
+
+/* CARDS */
+
 .cards{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:25px;
 }
 
 .card{
 background:rgba(255,255,255,.05);
-backdrop-filter:blur(15px);
-border-radius:25px;
 padding:30px;
+border-radius:20px;
 transition:.4s;
-border:1px solid rgba(255,255,255,.08);
 }
 
 .card:hover{
 transform:translateY(-10px);
-box-shadow:0 0 30px rgba(0,255,136,.25);
+box-shadow:0 0 25px rgba(0,255,136,.3);
 }
 
 .card h3{
+color:#00ff88;
 margin-bottom:15px;
-color:#00ff88;
 }
 
-/* Statistics */
-
-.stats{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-.stat{
-text-align:center;
-padding:40px;
-background:rgba(255,255,255,.05);
-border-radius:25px;
-}
-
-.number{
-font-size:3rem;
-font-weight:900;
-color:#00ff88;
-}
-
-/* Timeline */
+/* TIMELINE */
 
 .timeline{
-border-right:3px solid #00ff88;
+border-right:4px solid #00ff88;
 padding-right:30px;
 }
 
 .timeline-item{
-margin-bottom:50px;
-position:relative;
+margin-bottom:40px;
 }
 
-.timeline-item::before{
-content:'';
-position:absolute;
-right:-40px;
-top:10px;
-width:20px;
-height:20px;
-background:#00ff88;
-border-radius:50%;
+.timeline-item h3{
+color:#00ff88;
 }
 
-/* Footer */
+/* GALLERY */
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:20px;
+}
+
+.gallery img{
+width:100%;
+height:250px;
+object-fit:cover;
+border-radius:20px;
+transition:.4s;
+}
+
+.gallery img:hover{
+transform:scale(1.05);
+}
+
+/* QUOTE */
+
+.quote{
+text-align:center;
+font-size:30px;
+padding:60px;
+background:#0e1c14;
+border-radius:25px;
+}
+
+/* CONTACT */
+
+.contact{
+text-align:center;
+}
+
+.contact a{
+color:#00ff88;
+font-size:22px;
+text-decoration:none;
+}
+
+/* FOOTER */
 
 footer{
-padding:60px;
-text-align:center;
 background:black;
-margin-top:100px;
+padding:50px;
+text-align:center;
 }
-
-@keyframes fadeUp{
-from{
-opacity:0;
-transform:translateY(50px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-/* Scroll Animation */
 
 .hidden{
 opacity:0;
@@ -219,23 +247,55 @@ opacity:1;
 transform:translateY(0);
 }
 
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(50px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
+<nav>
+
+<div class="logo">
+MMJSH
+</div>
+
+<ul>
+<li><a href="#about">معرفی</a></li>
+<li><a href="#personality">ویژگی‌ها</a></li>
+<li><a href="#activities">فعالیت‌ها</a></li>
+<li><a href="#gallery">گالری</a></li>
+<li><a href="#contact">ارتباط</a></li>
+</ul>
+
+</nav>
+
 <section class="hero">
 
-<div class="glass">
+<div class="hero-content">
 
-<h1>استاد محمد مجید شیخ بهایی</h1>
+<h1>
+استاد محمد مجید شیخ بهایی
+</h1>
 
 <p>
-معلم قرآن کریم • مروج فرهنگ اسلامی • الهام‌بخش نسل جوان
+معلم قرآن کریم • فعال فرهنگی • مروج معارف اسلامی
 </p>
 
 <a href="#about" class="btn">
-مشاهده وبلاگ
+ورود به وبلاگ
 </a>
 
 </div>
@@ -248,23 +308,29 @@ transform:translateY(0);
 درباره استاد
 </h2>
 
-<div class="card">
+<div class="glass about">
 
 <p>
+این وب‌سایت با هدف معرفی فعالیت‌های فرهنگی و آموزشی استاد محمد مجید شیخ بهایی طراحی شده است. آنچه از تعاملات، فعالیت‌ها و شیوه ارتباط ایشان برداشت می‌شود، شخصیتی مؤدب، متواضع، فرهنگ‌دوست و علاقه‌مند به انتقال مفاهیم قرآنی به نسل جوان است.
+</p>
 
-این وب‌سایت با هدف معرفی فعالیت‌های فرهنگی، آموزشی و قرآنی استاد
-محمد مجید شیخ بهایی طراحی شده است.
+<p>
+آموزش قرآن تنها انتقال قواعد قرائت نیست؛ بلکه مسیری برای تربیت اخلاقی، معنوی و فکری انسان محسوب می‌شود. در این مسیر، معلمان قرآن نقش مهمی در آشنایی مخاطبان با مفاهیم ارزشمند الهی دارند و تلاش می‌کنند آموزه‌های قرآنی را به شکلی کاربردی در زندگی روزمره معرفی کنند.
+</p>
 
-شخصیتی متواضع، اخلاق‌مدار، اهل آموزش و حامی رشد جوانان که همواره
-در مسیر گسترش فرهنگ قرآنی تلاش نموده‌اند.
+<p>
+یکی از ویژگی‌های برجسته‌ای که در ارتباطات ایشان مشاهده می‌شود، روحیه تشویق و حمایت از افراد مستعد است. این رویکرد سبب می‌شود مخاطبان با انگیزه بیشتری مسیر یادگیری، خلاقیت و رشد فردی خود را دنبال کنند.
+</p>
 
+<p>
+توجه به اخلاق، احترام متقابل، گفتگوی سازنده و ایجاد فضای دوستانه از جمله ارزش‌هایی است که در تعاملات ایشان نمود پیدا می‌کند و همین موضوع باعث شکل‌گیری ارتباطی صمیمی میان ایشان و مخاطبانشان شده است.
 </p>
 
 </div>
 
 </section>
 
-<section class="hidden">
+<section id="personality" class="hidden">
 
 <h2 class="title">
 ویژگی‌های شخصیتی
@@ -273,13 +339,13 @@ transform:translateY(0);
 <div class="cards">
 
 <div class="card">
-<h3>اخلاق نیکو</h3>
-<p>احترام، تواضع و برخورد دوستانه.</p>
+<h3>اخلاق و احترام</h3>
+<p>برخورد محترمانه و گفتار همراه با ادب.</p>
 </div>
 
 <div class="card">
 <h3>روحیه آموزشی</h3>
-<p>انتقال دانش و تجربه به دیگران.</p>
+<p>علاقه‌مند به آموزش مفاهیم قرآنی و فرهنگی.</p>
 </div>
 
 <div class="card">
@@ -288,63 +354,82 @@ transform:translateY(0);
 </div>
 
 <div class="card">
-<h3>معنویت</h3>
-<p>توجه ویژه به ارزش‌های قرآنی.</p>
+<h3>حمایت از جوانان</h3>
+<p>تشویق افراد به یادگیری و پیشرفت.</p>
 </div>
 
 </div>
 
 </section>
 
-<section class="hidden">
+<section id="activities" class="hidden">
 
 <h2 class="title">
-دستاوردها
-</h2>
-
-<div class="stats">
-
-<div class="stat">
-<div class="number">100%</div>
-خدمت فرهنگی
-</div>
-
-<div class="stat">
-<div class="number">∞</div>
-علاقه به آموزش
-</div>
-
-<div class="stat">
-<div class="number">24/7</div>
-پاسخگویی و راهنمایی
-</div>
-
-</div>
-
-</section>
-
-<section class="hidden">
-
-<h2 class="title">
-مسیر فعالیت
+زمینه‌های فعالیت
 </h2>
 
 <div class="timeline">
 
 <div class="timeline-item">
-<h3>آغاز فعالیت قرآنی</h3>
-<p>ورود به عرصه آموزش و ترویج معارف اسلامی.</p>
-</div>
-
-<div class="timeline-item">
-<h3>آموزش قرآن</h3>
-<p>تربیت قرآن‌آموزان و انتقال مفاهیم ارزشمند قرآنی.</p>
+<h3>آموزش قرآن کریم</h3>
+<p>تلاش در مسیر آموزش و گسترش فرهنگ قرآنی.</p>
 </div>
 
 <div class="timeline-item">
 <h3>فعالیت فرهنگی</h3>
-<p>حمایت از پروژه‌های آموزشی و فرهنگی.</p>
+<p>حمایت از فعالیت‌های آموزشی و فرهنگی.</p>
 </div>
+
+<div class="timeline-item">
+<h3>ارتباط با مخاطبان</h3>
+<p>پاسخگویی و راهنمایی علاقه‌مندان.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="hidden">
+
+<div class="quote">
+« بهترین شما کسی است که قرآن را بیاموزد و به دیگران آموزش دهد »
+</div>
+
+</section>
+
+<section id="gallery" class="hidden">
+
+<h2 class="title">
+گالری
+</h2>
+
+<div class="gallery">
+
+<img src="images/gallery1.jpg">
+<img src="images/gallery2.jpg">
+<img src="images/gallery3.jpg">
+
+</div>
+
+</section>
+
+<section id="contact" class="hidden">
+
+<h2 class="title">
+ارتباط با استاد
+</h2>
+
+<div class="contact">
+
+<p>
+برای ارتباط و طرح پرسش‌های قرآنی:
+</p>
+
+<br>
+
+<a href="#">
+@Mmjsh110
+</a>
 
 </div>
 
@@ -353,19 +438,11 @@ transform:translateY(0);
 <footer>
 
 <h2>
-ارتباط با استاد
+استاد محمد مجید شیخ بهایی
 </h2>
 
-<br>
-
 <p>
-Telegram: @Mmjsh110
-</p>
-
-<br>
-
-<p>
-طراحی و توسعه توسط IESTM
+وبلاگ فرهنگی و قرآنی
 </p>
 
 </footer>
